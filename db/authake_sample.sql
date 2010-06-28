@@ -21,7 +21,7 @@ INSERT INTO `authake_groups` VALUES (1,'Administrators'),(3,'Other test group'),
 CREATE TABLE `authake_rules` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(256) character set latin1 NOT NULL COMMENT 'Rule description',
-  `group_id` int(10) unsigned NOT NULL default '0',
+  `group_id` int(10) unsigned default NULL,
   `order` int(10) unsigned default NULL,
   `action` varchar(512) character set latin1 default NULL,
   `permission` enum('Deny','Allow') collate utf8_unicode_ci NOT NULL default 'Deny',
@@ -29,7 +29,7 @@ CREATE TABLE `authake_rules` (
   `message` varchar(512) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-INSERT INTO `authake_rules` VALUES (1,'Allow everything for Administrators',1,999999,'*','Allow','',''),(2,'Allow anybody to see the home page, the error page, to register, to log in, see profile and log out',0,200,'/ or /authake/user/*','Allow','',''),(3,'(example) Allow anybody to view the rules list',0,700,'/authake/rules/index','Allow','',''),(4,'Deny everything for everybody by default (allow to have allow by default then deny)',0,0,'*','Deny','','Access denied!'),(5,'Allow \"user & group managers\" to edit users, groups and view rules',2,800,'/authake(/index)? or /authake/*/index/tableonly or /authake/users/(index|add/?|edit/[0-9]+|view/[0-9]+|delete/[0-9]+) or /authake/groups/(index|add/?|edit/[0-9]+|view/[0-9]+|delete/[0-9]+) or /authake/rules/(index|view/[0-9]+)','Allow','',''),(6,'Display a message for denied admin page',0,100,'/authake(/index)? or /authake/users* or /authake/groups* or /authake/rules*','Deny','','You are not allowed to access the administration page!');
+INSERT INTO `authake_rules` VALUES (1,'Allow everything for Administrators',1,999999,'*','Allow','',''),(2,'Allow anybody to see the home page, the error page, to register, to log in, see profile and log out',null,200,'/ or /authake/user/*','Allow','',''),(3,'(example) Allow anybody to view the rules list',null,700,'/authake/rules/index','Allow','',''),(4,'Deny everything for everybody by default (allow to have allow by default then deny)',null,0,'*','Deny','','Access denied!'),(5,'Allow \"user & group managers\" to edit users, groups and view rules',2,800,'/authake(/index)? or /authake/*/index/tableonly or /authake/users/(index|add/?|edit/[0-9]+|view/[0-9]+|delete/[0-9]+) or /authake/groups/(index|add/?|edit/[0-9]+|view/[0-9]+|delete/[0-9]+) or /authake/rules/(index|view/[0-9]+)','Allow','',''),(6,'Display a message for denied admin page',null,100,'/authake(/index)? or /authake/users* or /authake/groups* or /authake/rules*','Deny','','You are not allowed to access the administration page!');
 CREATE TABLE `authake_groups_users` (
   `user_id` int(10) unsigned NOT NULL default '0',
   `group_id` int(10) unsigned NOT NULL default '0'

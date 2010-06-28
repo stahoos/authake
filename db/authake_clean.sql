@@ -22,7 +22,7 @@ INSERT INTO `authake_groups_users` (`user_id`, `group_id`) VALUES
 CREATE TABLE IF NOT EXISTS `authake_rules` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(256) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Rule description',
-  `group_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `group_id` int(10) unsigned DEFAULT NULL,
   `order` int(10) unsigned DEFAULT NULL,
   `action` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL,
   `permission` enum('Deny','Allow') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Deny',
