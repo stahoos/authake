@@ -203,7 +203,7 @@ class UserController extends AuthakeAppController {
                 } else {
                     $this->Session->setFlash(sprintf(__('Failed to send the confirmation email. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error');
                 }
-                $this->redirect('/');
+                $this->redirect('/login');
             } else {
                 $this->Session->setFlash(__('The registration failed!', true), 'error');
             }
@@ -270,7 +270,7 @@ class UserController extends AuthakeAppController {
 
             // check for expired account
             $exp = $user['User']['expire_account'];
-            if ($user['User']['id'] != 1 and $exp != '0000-00-00' and strtotime($exp) < time()) {
+            if ($user['User']['id'] != 1 and $exp != '0000-00-00' and $exp != null and strtotime($exp) < time()) {
                 $this->Session->setFlash(__('Your account has expired!', true), 'error');
                 $this->redirect('/');
             }
@@ -303,7 +303,6 @@ class UserController extends AuthakeAppController {
         }
     }
     
-
     function lost_password() {
         if(Configure::read('Authake.registration') == false){
           $this->redirect('/');

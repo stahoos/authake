@@ -135,10 +135,10 @@ class UsersController extends AuthakeAppController {
             // save user
             if ($this->User->save($this->data)) {
                 $this->Session->setFlash(__('The User has been saved', true), 'success');
+                $this->redirect(array('action'=>'index'));
             } else {
                 $this->Session->setFlash(__('The User could not be saved. Please, try again.', true), 'error');
             }
-            $this->redirect(array('action'=>'index'));
         }
         
     // show edit form
