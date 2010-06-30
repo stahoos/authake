@@ -6,17 +6,17 @@ CREATE TABLE `authake_users` (
   `emailcheckcode` varchar(128) NOT NULL,
   `passwordchangecode` varchar(128) NOT NULL,
   `disable` tinyint(1) NOT NULL COMMENT 'Disable/enable account',
-  `expire_account` date NOT NULL,
+  `expire_account` default NULL,
   `created` datetime default NULL,
   `updated` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
-INSERT INTO `authake_users` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3','root','','',0,'0000-00-00','0000-00-00 00:00:00','2008-02-12 12:19:31'),(2,'acluser','5d35a4a2209c621b2896db016388db31','acluser@example.com','','',0,'0000-00-00','2008-01-26 19:08:03','2008-02-13 12:22:48'),(4,'otheruser','95e6a007d09887c5681d9b758ad644dd','otheruser@example.com','','',1,'2028-01-01','2008-01-30 23:40:03','2008-02-13 08:55:03'),(3,'simpleuser','96c8cd0d4d88181c5f9836457c0d9b1c','simpleuser@example.com','','',0,'2008-02-16','2008-01-31 16:47:09','2008-02-12 12:19:22');
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=utf8_unicode_ci;
+INSERT INTO `authake_users` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3','root','','',0, NULL,'0000-00-00 00:00:00','2008-02-12 12:19:31'),(2,'acluser','5d35a4a2209c621b2896db016388db31','acluser@example.com','','',0, NULL,'2008-01-26 19:08:03','2008-02-13 12:22:48'),(4,'otheruser','95e6a007d09887c5681d9b758ad644dd','otheruser@example.com','','',1,'2028-01-01','2008-01-30 23:40:03','2008-02-13 08:55:03'),(3,'simpleuser','96c8cd0d4d88181c5f9836457c0d9b1c','simpleuser@example.com','','',0,'2008-02-16','2008-01-31 16:47:09','2008-02-12 12:19:22');
 CREATE TABLE `authake_groups` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(64) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8_unicode_ci;
 INSERT INTO `authake_groups` VALUES (1,'Administrators'),(3,'Other test group'),(2,'User & group managers'),(0,'Everybody');
 CREATE TABLE `authake_rules` (
   `id` int(10) unsigned NOT NULL auto_increment,
@@ -33,5 +33,5 @@ INSERT INTO `authake_rules` VALUES (1,'Allow everything for Administrators',1,99
 CREATE TABLE `authake_groups_users` (
   `user_id` int(10) unsigned NOT NULL default '0',
   `group_id` int(10) unsigned NOT NULL default '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8_unicode_ci;
 INSERT INTO `authake_groups_users` VALUES (1,2),(1,3),(2,0),(4,3),(1,1);

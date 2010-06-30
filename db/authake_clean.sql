@@ -45,12 +45,12 @@ CREATE TABLE IF NOT EXISTS `authake_users` (
   `emailcheckcode` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `passwordchangecode` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `disable` tinyint(1) NOT NULL COMMENT 'Disable/enable account',
-  `expire_account` date NOT NULL,
+  `expire_account` date DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 INSERT INTO `authake_users` (`id`, `login`, `password`, `email`, `emailcheckcode`, `passwordchangecode`, `disable`, `expire_account`, `created`, `updated`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'root', '', '', 0, '0000-00-00', '0000-00-00 00:00:00', '2008-02-12 12:19:31');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'root', '', '', 0, NULL, '0000-00-00 00:00:00', '2008-02-12 12:19:31');
 
