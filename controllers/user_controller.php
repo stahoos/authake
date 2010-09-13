@@ -248,7 +248,7 @@ class UserController extends AuthakeAppController {
     function login(){
         if ($this->Authake->isLogged()) {
             $this->Session->setFlash(__('You are already logged in!', true), 'info');
-            $this->redirect('/');
+            $this->redirect(Configure::read('Authake.loggedAction'));
         }
         
         if (!empty($this->data) ) {

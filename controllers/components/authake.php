@@ -48,6 +48,13 @@ class AuthakeComponent extends Object {
             Configure::write('Authake.loginAction', array('plugin'=>'authake', 'controller'=>'user', 'action'=>'login'));
         }
         /**
+         * Used to redirect the users if the current user is logged out. Basically, this
+         * is used in case when The login page is the home page. If this is not set to different location, then it's going into recursion.
+        */
+        if(Configure::read('Authake.loggedAction') == null){
+            Configure::write('Authake.loggedAction', array('plugin'=>'authake', 'controller'=>'users', 'action'=>'index'));
+        }
+        /**
         * Session timeout in seconds, if managed by Authake (or null to disable)
         */
         if(Configure::read('Authake.sessionTimeout') == null){
@@ -110,6 +117,15 @@ class AuthakeComponent extends Object {
         $this->startup();
         
         // get action path
+        // used when the action is called through requestAction()
+        if(!isset($controller->params['url']['url'])){
+            if(isset($controller->params['plugin'])){
+                $url = ''.$controller->params['plugin'];
+            } else {
+                $url = '';
+            }
+            $controller->params['url']['url'] = $url.DS.$controller->params['controller'].DS.$controller->params['action'];
+        }
         $path = $controller->params['url']['url'];
         if ($path != '/') {
             $path = '/'.$path;
