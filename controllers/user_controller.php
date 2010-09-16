@@ -43,7 +43,7 @@ class UserController extends AuthakeAppController {
     */
     function index() {
         if (!$this->Authake->getUserId()) {
-            $this->Session->setFlash(__('Invalid User', true), 'error');
+            $this->Session->setFlash(__('Invalid User', true), 'error', array('plugin' => 'Authake'));
             $this->redirect('/');
         }
 
@@ -52,17 +52,17 @@ class UserController extends AuthakeAppController {
         if (!empty($this->data)) {
             if ($this->data['User']['password1'] != '') { // password changed
                 if ($this->data['User']['password1'] != $this->data['User']['password2']) {
-                    $this->Session->setFlash(__('The two passwords do not match!', true), 'error');
+                    $this->Session->setFlash(__('The two passwords do not match!', true), 'error', array('plugin' => 'Authake'));
                 } else {
                     $user['User']['password'] = md5($this->data['User']['password1']);
-                    $this->Session->setFlash(__('Password changed!', true), 'success');
+                    $this->Session->setFlash(__('Password changed!', true), 'success', array('plugin' => 'Authake'));
                 }
             }
             $state = 0;
             if (Configure::read('Authake.passwordVerify') == true && $this->data['User']['email'] != $user['User']['email']) {
                     //Check if that email is not registered by another user
                     if($this->User->find('count', array('conditions'=>array('User.email LIKE'=>$this->data['User']['email'], 'User.id != '.$user['User']['id']))) > 0){
-                      $this->Session->setFlash(__('This e-mail has beeen used by another user in the system. Please try with another one!', true), 'error');
+                      $this->Session->setFlash(__('This e-mail has beeen used by another user in the system. Please try with another one!', true), 'error', array('plugin' => 'Authake'));
                       $this->redirect(array('action'=>'index'));
                     }
                     
@@ -94,14 +94,14 @@ class UserController extends AuthakeAppController {
               
               switch($state){
                 case 1:
-                  $this->Session->setFlash(__('Your e-mail has been changed, you should receive a mail with instructions to confirm your new e-mail...', true), 'warning');
+                  $this->Session->setFlash(__('Your e-mail has been changed, you should receive a mail with instructions to confirm your new e-mail...', true), 'warning', array('plugin' => 'Authake'));
                   break;
                 
                 case 2:
-                  $this->Session->setFlash(sprintf(__('Failed to send a email to change your password. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error');
+                  $this->Session->setFlash(sprintf(__('Failed to send a email to change your password. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error', array('plugin' => 'Authake'));
                   break;
                 default:
-                  $this->Session->setFlash(__('The User profile has been saved', true), 'success');
+                  $this->Session->setFlash(__('The User profile has been saved', true), 'success', array('plugin' => 'Authake'));
               } 
             }
             if(Configure::read('Authake.passwordVerify') == true){
@@ -131,17 +131,17 @@ class UserController extends AuthakeAppController {
                 $user = $this->User->find('first', array('conditions'=>array('emailcheckcode'=>$this->data['User']['code'])));
                 
                 if (empty($user)) { // bad code or email
-                    $this->Session->setFlash(__('Bad identification data!', true), 'error');
+                    $this->Session->setFlash(__('Bad identification data!', true), 'error', array('plugin' => 'Authake'));
                 } else {
                     $user['User']['emailcheckcode'] = '';
                     $this->User->unbindModel(array('hasAndBelongsToMany'=>array('Group')), false);
                     $this->User->save($user);
                     
                     if($this->Authake->getUserId() == null){ //User need to be redirected to login
-                      $this->Session->setFlash(__('The confirmation code has been accepted. You may log in now!', true), 'success');
+                      $this->Session->setFlash(__('The confirmation code has been accepted. You may log in now!', true), 'success', array('plugin' => 'Authake'));
                       $this->redirect(array('action'=>'login'));
                     } else {
-                      $this->Session->setFlash(__('The confirmation code has been accepted. Thank you!', true), 'success');
+                      $this->Session->setFlash(__('The confirmation code has been accepted. Thank you!', true), 'success', array('plugin' => 'Authake'));
                       $this->redirect(array('action'=>'index'));
                     }
                 }
@@ -160,13 +160,13 @@ class UserController extends AuthakeAppController {
             $this->User->recursive = 0;
             $exist = $this->User->findByLogin($this->data['User']['login']);
             if (!empty($exist)) {
-                $this->Session->setFlash(__('This login is already used!', true), 'error');
+                $this->Session->setFlash(__('This login is already used!', true), 'error', array('plugin' => 'Authake'));
                 return;
             }
             
             $exist = $this->User->findByEmail($this->data['User']['email']);
             if (!empty($exist)) {
-                $this->Session->setFlash(__('This email is already registred!', true), 'error');
+                $this->Session->setFlash(__('This email is already registred!', true), 'error', array('plugin' => 'Authake'));
                 return;
             }
 
@@ -199,13 +199,13 @@ class UserController extends AuthakeAppController {
                 $this->set('service', Configure::read('Authake.service'));
                 
                 if ($this->Email->send()) {
-                    $this->Session->setFlash(__('You will receive an email with a code in order to finish the registration...', true));
+                    $this->Session->setFlash(__('You will receive an email with a code in order to finish the registration...', true), 'info', array('plugin' => 'Authake'));
                 } else {
-                    $this->Session->setFlash(sprintf(__('Failed to send the confirmation email. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error');
+                    $this->Session->setFlash(sprintf(__('Failed to send the confirmation email. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error', array('plugin' => 'Authake'));
                 }
                 $this->redirect('/login');
             } else {
-                $this->Session->setFlash(__('The registration failed!', true), 'error');
+                $this->Session->setFlash(__('The registration failed!', true), 'error', array('plugin' => 'Authake'));
             }
         }
     }
@@ -215,7 +215,7 @@ class UserController extends AuthakeAppController {
     */
     function pass($code = null){
       if($this->Authake->getUserId() > 0){
-        $this->Session->setFlash(__('You are already logged in. Change your password in your profile!', true), 'warning');
+        $this->Session->setFlash(__('You are already logged in. Change your password in your profile!', true), 'warning', array('plugin' => 'Authake'));
         $this->redirect(array('action'=>'index'));
       }
       $this->User->recursive = 0;
@@ -230,10 +230,10 @@ class UserController extends AuthakeAppController {
           $this->User->unbindModel(array('hasAndBelongsToMany'=>array('Group')), false);
           if($this->User->save($user)){
             //
-            $this->Session->setFlash(__('Your password has been changed!. You may log in now!', true), 'success');
+            $this->Session->setFlash(__('Your password has been changed!. You may log in now!', true), 'success', array('plugin' => 'Authake'));
             $this->redirect(array('action'=>'login'));
           } else {
-            $this->Session->setFlash(__('Error while saving your password!', true), 'error');
+            $this->Session->setFlash(__('Error while saving your password!', true), 'error', array('plugin' => 'Authake'));
           }
         }
       }
@@ -247,7 +247,7 @@ class UserController extends AuthakeAppController {
    */
     function login(){
         if ($this->Authake->isLogged()) {
-            $this->Session->setFlash(__('You are already logged in!', true), 'info');
+            $this->Session->setFlash(__('You are already logged in!', true), 'info', array('plugin' => 'Authake'));
             $this->redirect(Configure::read('Authake.loggedAction'));
         }
         
@@ -258,33 +258,33 @@ class UserController extends AuthakeAppController {
             $user = $this->User->findByLogin($login);
             
             if (empty($user)) {
-                $this->Session->setFlash(__('Invalid login or password!', true), 'error');
+                $this->Session->setFlash(__('Invalid login or password!', true), 'error', array('plugin' => 'Authake'));
                 return;
             }
             
             // check for locked account
             if ($user['User']['id'] != 1 and $user['User']['disable']) {
-                $this->Session->setFlash(__('Your account is disabled!', true), 'error');
+                $this->Session->setFlash(__('Your account is disabled!', true), 'error', array('plugin' => 'Authake'));
                 $this->redirect('/');
             }
 
             // check for expired account
             $exp = $user['User']['expire_account'];
             if ($user['User']['id'] != 1 and $exp != '0000-00-00' and $exp != null and strtotime($exp) < time()) {
-                $this->Session->setFlash(__('Your account has expired!', true), 'error');
+                $this->Session->setFlash(__('Your account has expired!', true), 'error', array('plugin' => 'Authake'));
                 $this->redirect('/');
             }
             
             // check for not confirmed email
             if ($user['User']['emailcheckcode'] != '') {
-                $this->Session->setFlash(__('You registration has not been confirmed!', true), 'warning');
+                $this->Session->setFlash(__('You registration has not been confirmed!', true), 'warning', array('plugin' => 'Authake'));
                 $this->redirect(array('action'=>'verify'));
             }
             
             $userdata = $this->User->getLoginData($login, $password);
             
             if (empty($userdata)) {
-                $this->Session->setFlash(__('Invalid login or password!', true), 'error');
+                $this->Session->setFlash(__('Invalid login or password!', true), 'error', array('plugin' => 'Authake'));
                 return;
             } else {
                 if($user['User']['passwordchangecode'] != ''){
@@ -297,7 +297,7 @@ class UserController extends AuthakeAppController {
                 
                 $next = $this->Authake->getPreviousUrl();
                 $this->Authake->login($userdata['User']);
-                $this->Session->setFlash(__('You are logged in as ', true).$userdata['User']['login'], 'success');
+                $this->Session->setFlash(__('You are logged in as ', true).$userdata['User']['login'], 'success', array('plugin' => 'Authake'));
                 $this->redirect($next !== null ? $next : '/');
             }
         }
@@ -320,7 +320,7 @@ class UserController extends AuthakeAppController {
             if (!empty($user)) { // ok, login or email is ok
                 //Prevent sending more than 11 e-mail
                 if($user['User']['passwordchangecode'] != ''){
-                  $this->Session->setFlash(__("You already requested password change. Please check your e-mail and use the code which we've sent", true), 'error');
+                  $this->Session->setFlash(__("You already requested password change. Please check your e-mail and use the code which we've sent", true), 'error', array('plugin' => 'Authake'));
                   $this->redirect(array('action'=>'lost_password'));
                 }
                 $md5 = $user['User']['passwordchangecode'] = md5(time()*rand().$user['User']['email']);
@@ -340,15 +340,15 @@ class UserController extends AuthakeAppController {
                     $this->set('service', Configure::read('Authake.service'));
                      
                     if ($this->Email->send() ) {
-                        $this->Session->setFlash(__('If data provided is correct, you should receive a mail with instructions to change your password...', true), 'warning');
+                        $this->Session->setFlash(__('If data provided is correct, you should receive a mail with instructions to change your password...', true), 'warning', array('plugin' => 'Authake'));
                     } else {
-                        $this->Session->setFlash(sprintf(__('Failed to send a email to change your password. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error');
+                        $this->Session->setFlash(sprintf(__('Failed to send a email to change your password. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error', array('plugin' => 'Authake'));
                     }
                 } else {
-                    $this->Session->setFlash(sprintf(__('Failed to change your password. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error');
+                    $this->Session->setFlash(sprintf(__('Failed to change your password. Please contact the administrator at %s', true), Configure::read('Authake.systemReplyTo')), 'error', array('plugin' => 'Authake'));
                 }
             } else {
-                $this->Session->setFlash(__('If data provided is correct, you should receive a mail with instructions to change your password...', true), 'warning');
+                $this->Session->setFlash(__('If data provided is correct, you should receive a mail with instructions to change your password...', true), 'warning', array('plugin' => 'Authake'));
             }
             $this->redirect(array('action'=>'lost_password'));
         }
@@ -358,7 +358,7 @@ class UserController extends AuthakeAppController {
     {
         if ($this->Authake->isLogged()) {
             $this->Authake->logout();
-            $this->Session->setFlash(__('You are logged out!', true), 'info');
+            $this->Session->setFlash(__('You are logged out!', true), 'info', array('plugin' => 'Authake'));
         }
         $this->redirect('/');
     }
