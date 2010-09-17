@@ -130,8 +130,10 @@ class AuthakeComponent extends Object {
         if ($path != '/') {
             $path = '/'.$path;
         }
-        
         $loginAction = Configure::read('Authake.loginAction');
+        if(is_array(Configure::read('Authake.loginAction'))){
+            $loginAction = "/".implode("/", Configure::read('Authake.loginAction'));
+        }
         if ($path != $loginAction) {
             $this->setPreviousUrl(null);
         }
