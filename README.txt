@@ -1,14 +1,46 @@
 Authake is (another) solution to manage users and groups and their rights in a CakePHP platform, as well as their registration, email confirmation and password changing requests. It’s composed by a component, a plugin, and a helper.
 
-For install instructions and feedback, please go to Authake home page: http://conseil-recherche-innovation.net/authake
+For install instructions and feedback, please go to Authake home page: http://www.mtkocak.net
 
-Hints:
+For install:
+
+ - Unzip the plugin to your app/Plugin folder with the name Authake. Case is important, lowercase folder name does not work.
+ - You have to have in your bootstrap.php
+
+		CakePlugin::loadAll();
+
+		or 
+
+		CakePlugin::load('Authake');
+
+ - Create AppController.php in you'r app's Controller folder first.
+ - Change it's contents like this:
+
+	<?php
+		class AppController extends Controller {
+		 var $helpers = array('Form', 'Time', 'Html', 'Session', 'Js', 'Authake.Authake');
+		    var $components = array('Session', 'RequestHandler', 'Authake.Authake','DebugKit.Toolbar');
+		    function beforeFilter(){
+			$this->auth();
+		    }
+		    private function auth(){
+			//Authake options which overwrite the defaults. 
+		        //full list you can see in /app/plugins/authake/controllers/components/authake.php function startup()
+			Configure::write('Authake.useDefaultLayout', true);
+			$this->Authake->beforeFilter($this);
+		    }
+		}
+	?>
+	
+ - Add the Authake/db/authake_clean.sql to your database. Do not add  authake_sample.sql, that does not work. SOME FORK PLEASE HERE!
+
+ - for any question mtkocak@gmail.com
 
 //add this to your config/database.php to make authake work.
 The idea behind this is that it would be possible to have 1 Authake instalation which handle multiple apps.
 
     var $authake = array(
-        'driver' => 'mysql',
+        'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => 'localhost',
         'login' => '', //username for the db
