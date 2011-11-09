@@ -1,5 +1,5 @@
 `<div id="authake">
-<? if (!$tableonly) { echo $this->element('gotoadminpage'); } ?>
+<?php if (!$tableonly) { echo $this->element('gotoadminpage'); } ?>
 <div class="users index">
 <?php if (!$tableonly) { ?>
 <h2><?php __('Users');?></h2>
