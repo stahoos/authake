@@ -204,7 +204,7 @@ $email = new CakeEmail();
                 } else {
                     $this->Session->setFlash(sprintf(__('Failed to send the confirmation email. Please contact the administrator at %s'), Configure::read('Authake.systemReplyTo')), 'error', array('plugin' => 'Authake'));
                 }
-                $this->redirect('/login');
+                $this->redirect(array('plugin'=>'authake','controller'=>'user','action'=>'login'));
             } else {
                 $this->Session->setFlash(__('The registration failed!'), 'error', array('plugin' => 'Authake'));
             }
