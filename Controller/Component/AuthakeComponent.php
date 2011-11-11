@@ -102,7 +102,7 @@ class AuthakeComponent extends Component {
         * If set registered user will be inserted into specified group
         */
         if(Configure::read('Authake.defaultGroup') == null){
-            Configure::write('Authake.defaultGroup', false); //could be array or single number
+            Configure::write('Authake.defaultGroup', 2); //could be array or single number
         }
         /**
         * Skip using authake layout for User controller.

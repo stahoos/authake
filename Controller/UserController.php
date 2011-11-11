@@ -180,7 +180,7 @@ class UserController extends AuthakeAppController {
             if(Configure::read('Authake.defaultGroup') != null && Configure::read('Authake.defaultGroup') != false){
               $groups = $this->Group->find('all', array('fields'=>array('Group.id'), 'conditions'=>array('Group.id'=>Configure::read('Authake.defaultGroup'))));
               foreach($groups as $group){
-                $this->data['Group']['Group'][] = $group['Group']['id'];
+                $this->request->data['Group']['Group'][] = $group['Group']['id'];
               }
             }
             //
