@@ -174,7 +174,7 @@ class UserController extends AuthakeAppController {
             if (!$pwd) return;  // password is invalid...
             $this->request->data['User']['password'] = $pwd;
             
-            $this-request->data['User']['emailcheckcode'] = md5(time()*rand());
+            $this->request->data['User']['emailcheckcode'] = md5(time()*rand());
             $this->User->create();
             //add default group if there is such thing
             if(Configure::read('Authake.defaultGroup') != null && Configure::read('Authake.defaultGroup') != false){
