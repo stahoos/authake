@@ -79,7 +79,7 @@ class AuthakeComponent extends Component {
         * Email which sends the system mails
         */
         if(Configure::read('Authake.systemEmail') == null){
-            Configure::write('Authake.systemEmail', 'Cake Test Account <noreply@example.com>');
+            Configure::write('Authake.systemEmail', 'noreply@example.com');
         }
         if(Configure::read('Authake.systemReplyTo') == null){
             Configure::write('Authake.systemReplyTo', 'noreply@example.com');
