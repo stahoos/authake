@@ -19,7 +19,7 @@
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
+App::uses('CakeEmail', 'Network/Email');
 class UserController extends AuthakeAppController {
   var $name     = 'User';
   var $uses     = array('Authake.User', 'Authake.Rule', 'Authake.Group');
@@ -69,18 +69,18 @@ class UserController extends AuthakeAppController {
                     $user['User']['emailcheckcode'] = md5(rand().time().rand().$user['User']['email']);
                     $user['User']['email'] = $this->data['User']['email'];
                     // send a mail with code to change the pw
-                    
-                    $this->Email->to = $user['User']['email'];
-                    $this->Email->subject = sprintf(__('Your e-mail change request at %s '), Configure::read('Authake.service', 'Authentication'));
-                    $this->Email->replyTo = Configure::read('Authake.systemReplyTo');
-                    $this->Email->from = Configure::read('Authake.systemEmail');
-                    $this->Email->sendAs = 'html';
-                    $this->Email->charset = 'utf-8';
-                    $this->Email->template = 'verify'; 
+                    $email = new CakeEmail();
+                    $email->to($user['User']['email']);
+                    $email->subject(sprintf(__('Your e-mail change request at %s '), Configure::read('Authake.service', 'Authentication')));
+                    $email->replyTo(Configure::read('Authake.systemReplyTo'));
+                    $email->from(Configure::read('Authake.systemEmail'));
+                    $email->emailFormat('html');
+                    //$this->Email->charset = 'utf-8';
+                    $email->template('Authake.verify'); 
                     //Set the code into template
                     $this->set('code', $user['User']['emailcheckcode']);
                     $this->set('service', Configure::read('Authake.service'));
-                    if ($this->Email->send() ) {
+                    if ($email->send() ) {
                         $state = 1;
                     } else {
                         $state = 2;
@@ -187,18 +187,19 @@ class UserController extends AuthakeAppController {
             if ($this->User->save($this->data)) {
             
                 // send a mail to finish the registration
-                $this->Email->to = $this->data['User']['email'];
-                $this->Email->subject = sprintf(__('Your registration confirmation at %s '), Configure::read('Authake.service', 'Authentication'));
-                $this->Email->replyTo = Configure::read('Authake.systemReplyTo');
-                $this->Email->from = Configure::read('Authake.systemEmail');
-                $this->Email->sendAs = 'html';
-                $this->Email->charset = 'utf-8';
-                $this->Email->template = 'register'; 
+$email = new CakeEmail();
+                $email->to($this->data['User']['email']);
+                $email->subject(sprintf(__('Your registration confirmation at %s '), Configure::read('Authake.service', 'Authentication')));
+                $email->replyTo(Configure::read('Authake.systemReplyTo'));
+                $email->from(Configure::read('Authake.systemEmail'));
+                    $email->emailFormat('html');
+                //$this->Email->charset = 'utf-8';
+                $email->template('Authake.register'); 
                 //Set the code into template
                 $this->set('code', $this->data['User']['emailcheckcode']);
                 $this->set('service', Configure::read('Authake.service'));
                 
-                if ($this->Email->send()) {
+                if ($email->send()) {
                     $this->Session->setFlash(__('You will receive an email with a code in order to finish the registration...'), 'info', array('plugin' => 'Authake'));
                 } else {
                     $this->Session->setFlash(sprintf(__('Failed to send the confirmation email. Please contact the administrator at %s'), Configure::read('Authake.systemReplyTo')), 'error', array('plugin' => 'Authake'));
@@ -334,7 +335,7 @@ class UserController extends AuthakeAppController {
                     $this->Email->from = Configure::read('Authake.systemEmail');
                     $this->Email->sendAs = 'html';
                     $this->Email->charset = 'utf-8';
-                    $this->Email->template = 'lost_password'; 
+                    $this->Email->template = '`Authake.lost_password'; 
                     //Set the code into template
                     $this->set('code', $user['User']['passwordchangecode']);
                     $this->set('service', Configure::read('Authake.service'));
