@@ -141,8 +141,8 @@ class UsersController extends AuthakeAppController {
         }
         
     // show edit form
-        $this->data = $user;
-        $this->data['User']['password'] = '';
+        $this->request->data = $user;
+        $this->request->data['User']['password'] = '';
 
         // find groups
         $groups = $this->User->Group->find('list');
