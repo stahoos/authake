@@ -108,7 +108,7 @@ class UsersController extends AuthakeAppController {
             
             // only an admin can make an admin
             if($this->data['Group']['Group'] == ''){
-              $this->data['Group']['Group'] = array();
+              $this->request->data['Group']['Group'] = array();
             }
             
             if (
@@ -122,14 +122,14 @@ class UsersController extends AuthakeAppController {
 
             // check if pwd changed
             if ($p = $this->data['User']['password'])
-                $this->data['User']['password'] = $this->__makePassword($p, $p);
+                $this->request->data['User']['password'] = $this->__makePassword($p, $p);
             else
-                unset($this->data['User']['password']);
+                unset($this->request->data['User']['password']);
 
             if (empty($this->data['Group']))
                 $this->data['Group']['Group'] = array();      // delete user-group relation if selection empty
 
-            unset($this->data['User']['login']);    // never change the login
+            unset($this->request->data['User']['login']);    // never change the login
 
             // save user
             if ($this->User->save($this->data)) {
