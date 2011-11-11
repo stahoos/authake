@@ -124,7 +124,7 @@ class UserController extends AuthakeAppController {
         }
         
         if($code != null){
-          $this->data['User']['code'] = $code;
+          $this->request->data['User']['code'] = $code;
         }
         if (!empty($this->data)) {
             $this->User->recursive = 0;
@@ -190,14 +190,16 @@ class UserController extends AuthakeAppController {
 $email = new CakeEmail();
                 $email->to($this->data['User']['email']);
                 $email->subject(sprintf(__('Your registration confirmation at %s '), Configure::read('Authake.service', 'Authentication')));
-                $email->replyTo(Configure::read('Authake.systemReplyTo'));
+                
+$email->viewVars(array('service' => Configure::read('Authake.service'), 'code'=> $this->data['User']['emailcheckcode']));
+$email->replyTo(Configure::read('Authake.systemReplyTo'));
                 $email->from(Configure::read('Authake.systemEmail'));
                     $email->emailFormat('html');
                 //$this->Email->charset = 'utf-8';
                 $email->template('Authake.register'); 
                 //Set the code into template
-                $this->set('code', $this->data['User']['emailcheckcode']);
-                $this->set('service', Configure::read('Authake.service'));
+                //$this->set('code', $this->data['User']['emailcheckcode']);
+                //$this->set('service', Configure::read('Authake.service'));
                 
                 if ($email->send()) {
                     $this->Session->setFlash(__('You will receive an email with a code in order to finish the registration...'), 'info', array('plugin' => 'Authake'));
