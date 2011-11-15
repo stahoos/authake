@@ -1,14 +1,11 @@
 <div id="authake">
 <?php echo $this->element('gotohomepage'); ?>
 <div class="login form">
-<?php echo $this->Form->create(null, array('action'=>'login'));?>
-    <fieldset>
-<!--        <legend><?php __('Login');?></legend>   -->
+<?php echo $this->Form->create(null, array('action'=>'login'));?> 
     <?php
         echo $this->Form->input('login', array('label'=>__('Login'), 'size'=>'14'));
         echo $this->Form->input('password', array('label'=>__('Password'), 'value' => '', 'size'=>'14'));
     ?>
-    </fieldset>
 <?php echo $this->Form->end(__('Login'))  ?>
 <?php if(Configure::read('Authake.registration') == true){?>
     <p class="lostpassword" style="margin-left: 16em;"><?php echo $this->Html->link(__("I forgot my password..."), array('action'=>'lost_password'))."<br/>"; ?></p>
