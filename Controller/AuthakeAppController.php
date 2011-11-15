@@ -19,6 +19,7 @@
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 App::uses('AppController', 'Controller');
+//App::uses('PagesController', 'Controller');
 class AuthakeAppController extends AppController {
     var $helpers = array('Time', 'Authake.Htmlbis');
 
