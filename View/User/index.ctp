@@ -27,7 +27,7 @@
     </dl>
 
 <?php echo $this->Form->create('User', array('url'=>'index'));?>
-        <legend><?php echo __('Modify');?></legend>
+        <legend><?php echo __('Modify profile');?></legend>
     <?php
         echo $this->Form->input('email', array('value'=>$user['User']['email'], 'size'=>'40', 'after'=>'<p>'.__('(If modified, you will have to confirm it before the next login)').'</p>'));
         echo $this->Form->input('password1', array('type'=>'password', 'label'=> __('New Password') , 'value' => '', 'size'=>'12'));
