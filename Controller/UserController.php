@@ -300,7 +300,7 @@ $email->replyTo(Configure::read('Authake.systemReplyTo'));
                 
                 $next = $this->Authake->getPreviousUrl();
                 $this->Authake->login($userdata['User']);
-                $this->Session->setFlash(__('You are logged in as ').$userdata['User']['login'], 'success', array('plugin' => 'Authake'));                
+                $this->Session->setFlash(__('You are logged in as ').$userdata['User']['login'], 'success' , array('plugin'=>'authake'));                
 				$this->redirect(array('plugin' => null,'controller'=>'pages', 'action' => 'index'));
             }
         }
