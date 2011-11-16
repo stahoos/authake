@@ -10,8 +10,9 @@ For install instructions and feedback, please go to Authake home page: http://ww
 
 For install:
 
-- Unzip the plugin to your app/Plugin folder with the name Authake. Case is important, lowercase folder name does not work.
-- You have to have in your bootstrap.php
+1. Unzip the plugin to your app/Plugin folder with the name Authake. Case is important, lowercase folder name does not work.
+
+2. You have to have in your bootstrap.php
 
 CakePlugin::loadAll();
 
@@ -19,9 +20,24 @@ or
 
 CakePlugin::load('Authake');
 
-- Create AppController.php in you'r app's Controller folder first.
+3. Add the Authake/db/authake_clean.sql to your database. 
 
-- Change it's contents like this: UPDATED: No need debug_kit anymore
+4. Add this to your config/database.php to make authake work.
+The idea behind this is that it would be possible to have 1 Authake instalation which handle multiple apps.
+
+var $authake = array(
+'datasource' => 'Database/Mysql',
+'persistent' => false,
+'host' => 'localhost',
+'login' => ", //username for the db
+'password' => ", //password for the db
+'database' => 'authake', //or any other where you have imported the authake.sql file
+'prefix' => ",
+);
+
+5. Create AppController.php in you'r app's Controller folder first.
+
+Change it's contents like this: UPDATED: No need debug_kit anymore
 
  <?php
 class AppController extends Controller {
@@ -37,22 +53,8 @@ class AppController extends Controller {
 	}
 }
 ?>
-- Add the Authake/db/authake_clean.sql to your database. 
 
-- Use username: admin password: admin to login
+6. Use username: admin password: admin to login
+
 
 - For any question mtkocak@gmail.com
-
-- Add this to your config/database.php to make authake work.
-The idea behind this is that it would be possible to have 1 Authake instalation which handle multiple apps.
-
-var $authake = array(
-'datasource' => 'Database/Mysql',
-'persistent' => false,
-'host' => 'localhost',
-'login' => ", //username for the db
-'password' => ", //password for the db
-'database' => 'authake', //or any other where you have imported the authake.sql file
-'prefix' => ",
-);
-
