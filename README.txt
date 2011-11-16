@@ -37,14 +37,23 @@ var $authake = array(
 
 Change it's contents like this: UPDATED: No need debug_kit anymore
 
-auth();
-}
-private function auth(){
-Configure::write('Authake.useDefaultLayout', true);
-$this->Authake->beforeFilter($this);
-}
+<?php
+
+class AppController extends Controller {
+	var $helpers = array('Form', 'Time', 'Html', 'Session', 'Js', 'Authake.Authake');
+	var $components = array('Session','RequestHandler', 'Authake.Authake');
+	var $counter = 0;
+	function beforeFilter(){
+		$this->auth();
+	}
+	private function auth(){
+		Configure::write('Authake.useDefaultLayout', true);
+		$this->Authake->beforeFilter($this);
+	}
+
 }
 ?>
+
 6. Use username: admin password: admin to login
 
 - For any question mtkocak@gmail.com
