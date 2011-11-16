@@ -16,6 +16,7 @@ echo $this->Paginator->counter(array(
 ));
 ?></p>
 <?php echo $this->Form->create('User', array('class'=>'filter'));?>
+<fieldset>
 <table class="listing" cellpadding="0" cellspacing="0">
 <tr>
 	<th><?php echo $this->Paginator->sort('id');?></th>
@@ -109,6 +110,7 @@ foreach ($users as $user):
 	</tr>
 <?php endforeach; ?>
 </table>
+</fieldset>
 <?php echo $this->Form->end();?>
 </div>
 <div class="paging">
