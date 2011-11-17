@@ -1,4 +1,4 @@
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+huSET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `authake_groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `authake_rules` (
 
 INSERT INTO `authake_rules` (`id`, `name`, `group_id`, `order`, `action`, `permission`, `forward`, `message`) VALUES
 (1, 'Allow everything for Administrators', 1, 999999, '*', 'Allow', '', ''),
-(2, 'Allow anybody to see the home page, the error page, to register, to log in, see profile and log out', null, 200, '/ or /authake/user/* or /register or /login or /logout or /lost-password or /verify(/)?* or /pass(/)?* or /profile or /denied', 'Allow', '', ''),
+(2, 'Allow anybody to see the home page, the error page, to register, to log in, see profile and log out', null, 200, '/ or /authake/user/* or /register or /login or /logout or /lost-password or /verify(/)?* or /pass(/)?* or /profile or /denied or /pages(/)?* or //pages/*', 'Allow', '', ''),
 (4, 'Deny everything for everybody by default (allow to have allow by default then deny)', null, 0, '*', 'Deny', '', 'Access denied!'),
 (6, 'Display a message for denied admin page', null, 100, '/authake(/index)? or /authake/users* or /authake/groups* or /authake/rules*', 'Deny', '', 'You are not allowed to access the administration page!');
 
