@@ -121,15 +121,15 @@ class AuthakeComponent extends Component {
         
         // get action path
         // used when the action is called through requestAction()
-        if(!isset($controller->request->params['url']['url'])){
+        if(!isset($controller->request['url'])){
             if(isset($controller->request->params['plugin'])){
                 $url = ''.$controller->request->params['plugin'];
             } else {
                 $url = '';
             }
-            $controller->request->params['url']['url'] = $url.DS.$controller->request->params['controller'].DS.$controller->request->params['action'];
+            $controller->request['url'] = $url.'/'.$controller->request->params['controller'].'/'.$controller->request->params['action'];
         }
-        $path = $controller->request->params['url']['url'];
+        $path = $controller->request['url'];
         if ($path != '/') {
             $path = '/'.$path;
         }
