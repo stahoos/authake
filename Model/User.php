@@ -97,7 +97,9 @@ class User extends AuthakeAppModel {
     
     function getLoginData($login='', $password='')
     {
-        $data = $this->find('first', array('conditions'=>array('login'=>$login, 'password'=>md5($password))));
+        // Solved user-group-profile big issue, thanks to Benjamin Fore ben.fore@gmail.com.
+        $data = $this->find('first', array('conditions'=>array('login'=>$login, 'password'=>md5($password)),
+'recursive'=>1,));
 
         if (!empty($data)) {
 /*
