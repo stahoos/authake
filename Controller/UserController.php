@@ -47,6 +47,9 @@ class UserController extends AuthakeAppController {
             $this->redirect('/');
         }
 
+//group model issue solved thanks to benjamin fore
+	$this->User->recursive = 1;
+
         $user = $this->User->read(null, $this->Authake->getUserId());
 
         if (!empty($this->data)) {
