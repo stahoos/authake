@@ -42,38 +42,9 @@ class UserTestCase extends CakeTestCase {
 	$login='admin'; 
 	$password='admin';
 	
-        $result = $this->User->find('first', array('conditions'=>array('login'=>$login, 'password'=>md5($password)),
-'recursive'=>1,));
-
-
-            if (!empty($result['Group'])) {
-                foreach($result['Group'] as $group) {
-                    $result['User']['group_ids'][] = $group['id'];
-                    $result['User']['group_names'][] = $group['name'];
-                }
-            }
-
-            
-            unset($result['User']['password']); // not useful to save the encrypted password in session
-
+        $result = $this->User->getLoginData($login, $password);
 	        $expected = 
-	array('User'=> 
-				array('id'=> '1',
-					   'login'=> 'admin',
-						'password' => '21232f297a57a5a743894a0e4a801fc3',
-					  	'email'=> 'root',
-					 	'emailcheckcode'=>'',
-			 			'passwordchangecode'=> '',
-			 			'disable'=> false ,
-						'expire_account'=> null,
-						'created'=>  '0000-00-00 00:00:00',
-						'updated' => '2008-02-12 12:19:31',
-			 'Group'=> 
-				array( 
-					0 => 
-					array( 'id'=> '1',
-					'name'=> 'Administrators' ) ) ));
-
+$this->User->getLoginData($login, $password);
 
 	        $this->assertEquals($expected, $result);
        

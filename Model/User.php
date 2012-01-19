@@ -99,7 +99,7 @@ var $recursive = 1;
     function getLoginData($login='', $password='')
     {
 	$hashed = md5($password);
-        $data = $this->find('first', array('conditions'=>array('login'=>$login, 'password'=>$hashed)));
+        $data = $this->find('first', array('conditions'=>array('login'=>$login, 'password'=>$hashed),'recursive' => 1));
 
         if (!empty($data)) {
 /*
