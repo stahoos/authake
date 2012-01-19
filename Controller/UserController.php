@@ -47,8 +47,7 @@ class UserController extends AuthakeAppController {
             $this->redirect('/');
         }
 
-//group model issue solved thanks to benjamin fore
-	$this->User->recursive = 1;
+$this->User->recursive = 1;
 
         $user = $this->User->read(null, $this->Authake->getUserId());
 
@@ -299,10 +298,11 @@ $email->replyTo(Configure::read('Authake.systemReplyTo'));
                   $user['User']['passwordchangecode'] = '';
                   $this->User->save($user);
                 }
-                $next = $this->Authake->getPreviousUrl();
+                //$next = $this->Authake->getPreviousUrl();
                 $this->Authake->login($userdata['User']);
                 $this->Session->setFlash(__('You are logged in as ').$userdata['User']['login'], 'success' , array('plugin'=>'authake'));
-				$this->redirect($next);
+				//$this->redirect($next);
+				 $this->redirect(Configure::read('Authake.loggedAction'));
             }
         }
     }

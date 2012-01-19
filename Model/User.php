@@ -19,11 +19,12 @@
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
+App::uses('AuthakeAppModel', 'Authake.Model');
 class User extends AuthakeAppModel {
     var $name = 'User';
     var $useTable = "authake_users";
     var $useDbConfig = 'authake';
+var $recursive = 1;
     var $hasAndBelongsToMany = array(
         'Group' => array('className' => 'Authake.Group',
                     'joinTable' => 'authake_groups_users',
@@ -97,9 +98,8 @@ class User extends AuthakeAppModel {
     
     function getLoginData($login='', $password='')
     {
-        // Solved user-group-profile big issue, thanks to Benjamin Fore ben.fore@gmail.com.
-        $data = $this->find('first', array('conditions'=>array('login'=>$login, 'password'=>md5($password)),
-'recursive'=>1,));
+	$hashed = md5($password);
+        $data = $this->find('first', array('conditions'=>array('login'=>$login, 'password'=>$hashed)));
 
         if (!empty($data)) {
 /*
@@ -112,20 +112,22 @@ class User extends AuthakeAppModel {
                     $data['User']['group_names'][] = $group['name'];
                 }
             }
+
             
             unset($data['User']['password']); // not useful to save the encrypted password in session
             return $data;
         } else
             return false;
-        
+
     }
 
     function getGroups($id) {
-        $groups = $this->findById($id);
+        $groups = $this->findById($id); //SORUN TAM DA BURADA OLABİLİR
         $list = array(0);
         foreach($groups['Group'] as $group)
             $list[] = $group['id'];
         return $list;
+//var_dump($list);
     }
 }
 ?>

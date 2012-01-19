@@ -19,10 +19,12 @@
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+App::uses('AuthakeAppModel', 'Authake.Model');
 
 class Group extends AuthakeAppModel {
   var $name = 'Group';
   var $useTable = "authake_groups";
+var $recursive = 1;
   var $hasMany = array(
         'Rule' => array(
           'className' => 'Authake.Rule',
@@ -44,51 +46,6 @@ class Group extends AuthakeAppModel {
           'displayField' => 'login'
         )
       );
-
-
-/*//    var $hasOne = array(
-            'Rule' => array('className' => 'Rule',
-                                'foreignKey' => 'group_id',
-                                'dependent' => false,
-                                'conditions' => '',
-                                'fields' => '',
-                                'order' => ''
-            )
-    );
-
-    var $hasMany = array(
-            'Rule' => array('className' => 'Rule',
-                                'foreignKey' => 'group_id',
-                                'dependent' => false,
-                                'conditions' => '',
-                                'fields' => '',
-                                'order' => '',
-                                'limit' => '',
-                                'offset' => '',
-                                'exclusive' => '',
-                                'finderQuery' => '',
-                                'counterQuery' => ''
-            )
-    );
-
-    var $hasAndBelongsToMany = array(
-            'User' => array('className' => 'User',
-                        'joinTable' => 'groups_users',
-                        'foreignKey' => 'group_id',
-                        'associationForeignKey' => 'user_id',
-                        'unique' => false,
-                        'conditions' => '',
-                        'fields' => '',
-                        'order' => '',
-                        'limit' => '',
-                        'offset' => '',
-                        'finderQuery' => '',
-                        'deleteQuery' => '',
-                        'insertQuery' => ''
-            )
-    );
-
-*/
 
 }
 ?>
