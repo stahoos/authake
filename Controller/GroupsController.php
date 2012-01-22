@@ -29,7 +29,7 @@ class GroupsController extends AuthakeAppController {
                 'Group.id' => 'asc'
             )
         );
-	var $layout = 'authake';
+	//var $layout = 'authake';
     
     var $uses = array('Authake.Group', 'Authake.Rule');
 
