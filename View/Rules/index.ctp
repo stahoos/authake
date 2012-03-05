@@ -86,3 +86,11 @@ foreach ($rules as $k => $rule):
 </table>
 </div>
 </div>
+<?php if (!$tableonly) { ?>
+<div class="actions">
+	<ul>
+        <li class="icon user"><?php echo $this->Html->link(__('Manage users'), array('controller'=> 'users', 'action'=>'index')); ?> </li>
+        <li class="icon lock"><?php echo $this->Html->link(__('Manage groups'), array('controller'=> 'groups', 'action'=>'index')); ?> </li>
+	</ul>
+</div>
+<?php } ?>

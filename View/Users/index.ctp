@@ -118,4 +118,12 @@ foreach ($users as $user):
 	<?php echo $this->Paginator->next(__('next').' >>', array(), null, array('class'=>'disabled'));?>
 </div>
 </div>
+<?php if (!$tableonly) { ?>
+<div class="actions">
+	<ul>
+        <li class="icon user"><?php echo $this->Html->link(__('Manage groups'), array('controller'=> 'groups', 'action'=>'index')); ?> </li>
+        <li class="icon lock"><?php echo $this->Html->link(__('Manage rules'), array('controller'=> 'rules', 'action'=>'index')); ?> </li>
+	</ul>
+</div>
+<?php } ?>
 </div>
