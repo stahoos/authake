@@ -58,7 +58,7 @@ foreach ($rules as $k => $rule):
             <?php if ($rule['Rule']['id'] != 1) { ?>      
             <?php echo $this->Htmlbis->iconlink('information', __('View'), array('action'=>'view', $rule['Rule']['id'])); ?>
             <?php echo $this->Htmlbis->iconlink('pencil', __('Edit'), array('action'=>'edit', $rule['Rule']['id'])); ?>
-			<?php echo $this->Htmlbis->iconlink('cross', __('Delete'), array('action'=>'delete', $rule['Rule']['id']), null, sprintf(__('Are you sure you want to delete the rule "%s"?'), $rule['Rule']['name'])); ?>
+			<?php echo $this->Htmlbis->iconlink('cross', __('Delete'), array('action'=>'delete', $rule['Rule']['id']), null, sprintf(__('Are you sure you want to delete the rule \'%s\'?'), $rule['Rule']['name'])); ?>
             <?php
 
             if ($up) {
