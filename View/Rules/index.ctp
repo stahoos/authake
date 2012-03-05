@@ -62,7 +62,7 @@ foreach ($rules as $k => $rule):
             <?php
 
             if ($up) {
-                echo $this->Htmlbis->iconlink('arrow_up', __('Move up'), array('action'=>'up', $rule['Rule']['id'].'/'.$up));
+                echo $this->Htmlbis->iconlink('arrow_up', __('Move up'), array('action'=>'up', $rule['Rule']['id'], $up));
             } else {
                 echo $this->Htmlbis->iconlink('empty', '', array('action'=>''));
             }
@@ -70,7 +70,7 @@ foreach ($rules as $k => $rule):
               
             $down = $rules[$k+1]['Rule']['id'];
             if ($down>1) {
-                echo $this->Htmlbis->iconlink('arrow_down', __('Move down'), array('action'=>'up', $rule['Rule']['id'].'/'.$down));
+                echo $this->Htmlbis->iconlink('arrow_down', __('Move down'), array('action'=>'up', $rule['Rule']['id'], $down));
             } else {
                 echo $this->Htmlbis->iconlink('empty', '', array('action'=>''));
             }
