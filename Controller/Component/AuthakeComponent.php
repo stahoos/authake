@@ -149,7 +149,7 @@ class AuthakeComponent extends Component {
             if ((time() - $ts) > $tm) {
                 $this->setPreviousUrl($path);
                 $this->logout();
-                $this->Session->setFlash(__('Your session expired'), 'warning');
+                $this->Session->setFlash(__d('authake', 'Your session expired'), 'warning');
                 $controller->redirect($loginAction);
             }
             $this->setTimestamp();
@@ -158,7 +158,7 @@ class AuthakeComponent extends Component {
         if (!$this->isAllowed($path)) { // check for permissions
             if ($this->isLogged()) { // if denied & logged, write a message
                 if ($this->_flashmessage) { // message from the rule (accept path in %s)
-                    $this->Session->setFlash(sprintf(__($this->_flashmessage), $path), 'error');    // Set Flash message
+                    $this->Session->setFlash(sprintf(__d('authake', $this->_flashmessage), $path), 'error');    // Set Flash message
                 }
 
                 $fw = $this->_forward ? $this->_forward : Configure::read('Authake.defaultDeniedAction');
@@ -166,7 +166,7 @@ class AuthakeComponent extends Component {
             } else { // if denied & not loggued, propose to log in
                 $this->setPreviousUrl($path);
              $strpath = Router::url($path + array("base" => false));
-            $this->Session->setFlash(sprintf(__('You have to log in to access %s'), $strpath), 'warning');
+            $this->Session->setFlash(sprintf(__d('authake', 'You have to log in to access %s'), $strpath), 'warning');
        $controller->redirect($loginAction);
             }
             $this->_flashmessage = '';
@@ -207,7 +207,7 @@ class AuthakeComponent extends Component {
 
     function getGroupNames() {
         $gn = $this->Session->read('Authake.group_names');
-        return (is_array($gn) ? $gn : array(__('Guest')));
+        return (is_array($gn) ? $gn : array(__d('authake', 'Guest')));
     }
 
     function isMemberOf($gid) {

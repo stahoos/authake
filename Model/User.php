@@ -61,29 +61,29 @@ var $recursive = 1;
             'email' => array(
                     'notEmpty' => array(
                             'rule' => 'notEmpty',
-                            'message'=>__('Username can not be blank')
+                            'message'=>__d('authake', 'Username can not be blank')
                     ),
                     'unique' => array(
                             'rule' => 'isUnique',
-                            'message'=>__('This e-mail has already been used'),
+                            'message'=>__d('authake', 'This e-mail has already been used'),
                             'on'=>'create'
                     ),
                     /*'emailAddress' => array(
                             'rule' => array('email', true),
-                            'message' => __('Please supply a valid email address')
+                            'message' => __d('authake', 'Please supply a valid email address')
                     )*/
             ),
             'password1' => array(
                     'checkEmpty' => array(
                             'rule' => array('notEmpty'),
-                            'message' => __('Passwords must be equal and not empty'),
+                            'message' => __d('authake', 'Passwords must be equal and not empty'),
                             'on' => 'create'
                     )
             ),
             'password2' => array(
                     'checkInsertPass' => array(
                             'rule' => array('notEmpty'),
-                            'message' => __('Passwords must be equal and not empty'),
+                            'message' => __d('authake', 'Passwords must be equal and not empty'),
                             'on' => 'create'
                     )
             )
@@ -109,7 +109,7 @@ var $recursive = 1;
         if (!empty($data)) {
 /*
             $data['User']['group_ids'][] = 0; // everybody is at least a guest
-            $data['User']['group_names'][] = __('Guest');
+            $data['User']['group_names'][] = __d('authake', 'Guest');
 */
             if (!empty($data['Group'])) {
                 foreach($data['Group'] as $group) {

@@ -1,0 +1,901 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Authake\n"
+"POT-Creation-Date: 2012-05-27 22:45+0200\n"
+"PO-Revision-Date: 2012-05-27 22:52+0100\n"
+"Last-Translator: Stanislaw Cieslicki <stahoo@poczta.onet.pl>\n"
+"Language-Team: Staszek Cieslicki Metano.pl <stahoo@poczta.onet.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+
+#: /AuthakeApp.php:28
+#: /User.php:56
+msgid "The two passwords do not match!"
+msgstr ""
+
+#: /Groups.php:44
+msgid "Invalid group."
+msgstr ""
+
+#: /Groups.php:59;82
+msgid "The group has been saved"
+msgstr ""
+
+#: /Groups.php:62
+msgid "The group could not be saved. Please, try again"
+msgstr ""
+
+#: /Groups.php:71
+msgid "Invalid group"
+msgstr ""
+
+#: /Groups.php:76
+msgid "You cannot edit the group administrators"
+msgstr ""
+
+#: /Groups.php:84
+msgid "The group could not be saved. Please, try again."
+msgstr ""
+
+#: /Groups.php:106
+msgid "Impossible to delete this group"
+msgstr ""
+
+#: /Groups.php:110
+msgid "Group deleted"
+msgstr ""
+
+#: /Rules.php:37
+msgid "Invalid Rule."
+msgstr ""
+
+#: /Rules.php:48;74
+msgid "The Rule has been saved"
+msgstr ""
+
+#: /Rules.php:51;77
+msgid "The Rule could not be saved. Please, try again."
+msgstr ""
+
+#: /Rules.php:65
+msgid "Invalid Rule"
+msgstr ""
+
+#: /Rules.php:69
+msgid "Impossible to edit this rule!"
+msgstr ""
+
+#: /Rules.php:95
+msgid "Invalid id for Rule"
+msgstr ""
+
+#: /Rules.php:98
+msgid "Impossible to delete this rule!"
+msgstr ""
+
+#: /Rules.php:101
+msgid "Rule deleted"
+msgstr ""
+
+#: /User.php:45
+#: /Users.php:47;87
+msgid "Invalid User"
+msgstr ""
+
+#: /User.php:59
+msgid "Password changed!"
+msgstr ""
+
+#: /User.php:66
+msgid "This e-mail has beeen used by another user in the system. Please try with another one!"
+msgstr ""
+
+#: /User.php:75
+msgid "Your e-mail change request at %s "
+msgstr ""
+
+#: /User.php:98
+msgid "Your e-mail has been changed, you should receive a mail with instructions to confirm your new e-mail..."
+msgstr ""
+
+#: /User.php:102;357
+msgid "Failed to send a email to change your password. Please contact the administrator at %s"
+msgstr ""
+
+#: /User.php:105
+msgid "The User profile has been saved"
+msgstr ""
+
+#: /User.php:135
+msgid "Bad identification data!"
+msgstr ""
+
+#: /User.php:142
+msgid "The confirmation code has been accepted. You may log in now!"
+msgstr ""
+
+#: /User.php:145
+msgid "The confirmation code has been accepted. Thank you!"
+msgstr ""
+
+#: /User.php:166
+msgid "This login is already used!"
+msgstr ""
+
+#: /User.php:172
+msgid "This email is already registred!"
+msgstr ""
+
+#: /User.php:195
+msgid "Your registration confirmation at %s "
+msgstr ""
+
+#: /User.php:208
+msgid "You will receive an email with a code in order to finish the registration..."
+msgstr ""
+
+#: /User.php:210
+msgid "Failed to send the confirmation email. Please contact the administrator at %s"
+msgstr ""
+
+#: /User.php:214
+msgid "The registration failed!"
+msgstr ""
+
+#: /User.php:224
+msgid "You are already logged in. Change your password in your profile!"
+msgstr ""
+
+#: /User.php:239
+msgid "Your password has been changed!. You may log in now!"
+msgstr ""
+
+#: /User.php:242
+msgid "Error while saving your password!"
+msgstr ""
+
+#: /User.php:256
+msgid "You are already logged in!"
+msgstr ""
+
+#: /User.php:271;297
+msgid "Invalid login or password!"
+msgstr ""
+
+#: /User.php:277
+msgid "Your account is disabled!"
+msgstr ""
+
+#: /User.php:284
+msgid "Your account has expired!"
+msgstr ""
+
+#: /User.php:290
+msgid "You registration has not been confirmed!"
+msgstr ""
+
+#: /User.php:308
+msgid "You are logged in as "
+msgstr ""
+
+#: /User.php:335
+msgid "You already requested password change. Please check your e-mail and use the code which we've sent"
+msgstr ""
+
+#: /User.php:344
+msgid "Your password change request at %s "
+msgstr ""
+
+#: /User.php:355;363
+msgid "If data provided is correct, you should receive a mail with instructions to change your password..."
+msgstr ""
+
+#: /User.php:360
+msgid "Failed to change your password. Please contact the administrator at %s"
+msgstr ""
+
+#: /User.php:373
+msgid "You are logged out!"
+msgstr ""
+
+#: /Users.php:64;118
+msgid "You cannot add a user in administrators group"
+msgstr ""
+
+#: /Users.php:73;135
+msgid "The User has been saved"
+msgstr ""
+
+#: /Users.php:76;138
+msgid "The User could not be saved. Please, try again."
+msgstr ""
+
+#: /Users.php:97
+msgid "You cannot edit a user in administrators group"
+msgstr ""
+
+#: /Users.php:104
+msgid "Only the admin can change its profile!"
+msgstr ""
+
+#: /Users.php:157
+msgid "Invalid id for User"
+msgstr ""
+
+#: /Users.php:165
+msgid "You cannot delete a user in administrators group"
+msgstr ""
+
+#: /Users.php:170
+msgid "User deleted"
+msgstr ""
+
+#: /Component/AuthakeComponent.php:152
+msgid "Your session expired"
+msgstr ""
+
+#: /Component/AuthakeComponent.php:169
+msgid "You have to log in to access %s"
+msgstr ""
+
+#: /Component/AuthakeComponent.php:210
+#: /Helper/AuthakeHelper.php:46
+#: /Helper/authake.php:46
+#: /User/index.ctp:18
+#: /Users/index.ctp:74
+msgid "Guest"
+msgstr ""
+
+#: /User.php:64
+msgid "Username can not be blank"
+msgstr ""
+
+#: /User.php:68
+msgid "This e-mail has already been used"
+msgstr ""
+
+#: /User.php:79;86
+msgid "Passwords must be equal and not empty"
+msgstr ""
+
+#: /Authake/index.ctp:4
+msgid "Logout"
+msgstr ""
+
+#: /Authake/index.ctp:8
+msgid "Authake administration page"
+msgstr ""
+
+#: /Authake/index.ctp:12
+#: /Groups/index.ctp:65
+#: /Groups/view.ctp:84
+#: /Rules/index.ctp:92
+#: /Users/add.ctp:4
+#: /Users/edit.ctp:4
+#: /Users/view.ctp:4
+msgid "Manage users"
+msgstr ""
+
+#: /Authake/index.ctp:13
+#: /Groups/add.ctp:4
+#: /Groups/edit.ctp:4
+#: /Groups/view.ctp:4
+#: /Rules/index.ctp:93
+#: /Users/index.ctp:124
+msgid "Manage groups"
+msgstr ""
+
+#: /Authake/index.ctp:14
+#: /Groups/index.ctp:66
+#: /Groups/view.ctp:47;138
+#: /Rules/add.ctp:4
+#: /Rules/edit.ctp:4
+#: /Rules/view.ctp:4
+#: /Users/index.ctp:125
+#: /Users/view.ctp:130;179
+msgid "Manage rules"
+msgstr ""
+
+#: /Authake/index.ctp:18
+#: /Users/index.ctp:5
+msgid "Users"
+msgstr ""
+
+#: /Authake/index.ctp:22
+msgid "New user"
+msgstr ""
+
+#: /Authake/index.ctp:26
+#: /Groups/index.ctp:6
+#: /User/index.ctp:11
+msgid "Groups"
+msgstr ""
+
+#: /Authake/index.ctp:30
+#: /Groups/index.ctp:9
+msgid "New group"
+msgstr ""
+
+#: /Authake/index.ctp:34
+#: /Rules/index.ctp:6
+msgid "Rules"
+msgstr ""
+
+#: /Authake/index.ctp:38
+#: /Groups/view.ctp:137
+msgid "New rule"
+msgstr ""
+
+#: /Elements/gotoadminpage.ctp:3
+msgid "Admin page"
+msgstr ""
+
+#: /Elements/gotohomepage.ctp:3
+msgid "Homepage"
+msgstr ""
+
+#: /Emails/html/lost_password.ctp:1
+msgid "You requested a password change at %s"
+msgstr ""
+
+#: /Emails/html/lost_password.ctp:2
+msgid "Following the link below you can change your password:"
+msgstr ""
+
+#: /Emails/html/lost_password.ctp:5
+msgid "Click here to change your password"
+msgstr ""
+
+#: /Emails/html/lost_password.ctp:7
+#: /Emails/html/register.ctp:7
+#: /Emails/html/verify.ctp:7
+msgid "Verification code: %s"
+msgstr ""
+
+#: /Emails/html/lost_password.ctp:8
+msgid "If you don't request this change, no action is required. Your password will remain the same until you don't activate this code."
+msgstr ""
+
+#: /Emails/html/lost_password.ctp:9
+#: /Emails/html/register.ctp:8
+#: /Emails/html/verify.ctp:8
+msgid "Best regards"
+msgstr ""
+
+#: /Emails/html/register.ctp:1
+#: /Emails/html/verify.ctp:1
+msgid "Your e-mail verification at %s"
+msgstr ""
+
+#: /Emails/html/register.ctp:2
+msgid "You registered at our service."
+msgstr ""
+
+#: /Emails/html/register.ctp:2
+#: /Emails/html/verify.ctp:2
+msgid "To ensure that this e-mail is valid, please follow this link:"
+msgstr ""
+
+#: /Emails/html/register.ctp:5
+#: /Emails/html/verify.ctp:5
+msgid "Click here to verify"
+msgstr ""
+
+#: /Emails/html/verify.ctp:2
+msgid "You changed your e-mail address in your profile."
+msgstr ""
+
+#: /Groups/add.ctp:10
+msgid "Create a new group"
+msgstr ""
+
+#: /Groups/add.ctp:12
+#: /Groups/edit.ctp:13
+msgid "Name"
+msgstr ""
+
+#: /Groups/add.ctp:13
+#: /Groups/edit.ctp:14
+msgid "Users in this group<br/>Press 'Control' for multi-selection"
+msgstr ""
+
+#: /Groups/add.ctp:16
+#: /Users/add.ctp:21
+msgid "Create"
+msgstr ""
+
+#: /Groups/edit.ctp:10
+msgid "Modify group"
+msgstr ""
+
+#: /Groups/edit.ctp:17
+#: /Users/edit.ctp:25
+msgid "Modify"
+msgstr ""
+
+#: /Groups/edit.ctp:21
+#: /Groups/view.ctp:13
+msgid "View group"
+msgstr ""
+
+#: /Groups/edit.ctp:22
+#: /Groups/index.ctp:40
+#: /Rules/edit.ctp:27
+#: /Rules/index.ctp:61
+#: /Users/edit.ctp:31
+#: /Users/index.ctp:107
+msgid "Delete"
+msgstr ""
+
+#: /Groups/edit.ctp:22
+#: /Rules/edit.ctp:27
+#: /Rules/view.ctp:71
+#: /Users/edit.ctp:31
+msgid "Are you sure you want to delete # %s?"
+msgstr ""
+
+#: /Groups/index.ctp:16
+msgid "There are %current% groups on this system."
+msgstr ""
+
+#: /Groups/index.ctp:22
+#: /Groups/view.ctp:60;102
+#: /Rules/index.ctp:19
+#: /Users/index.ctp:30
+#: /Users/view.ctp:145
+msgid "Actions"
+msgstr ""
+
+#: /Groups/index.ctp:38
+#: /Groups/view.ctp:74;125
+#: /Rules/index.ctp:59
+#: /Users/index.ctp:105
+#: /Users/view.ctp:168
+msgid "View"
+msgstr ""
+
+#: /Groups/index.ctp:39
+#: /Groups/view.ctp:75;126
+#: /Rules/index.ctp:60
+#: /Users/index.ctp:106
+#: /Users/view.ctp:169
+msgid "Edit"
+msgstr ""
+
+#: /Groups/index.ctp:40
+msgid "Are you sure you want to delete the group '%s'?"
+msgstr ""
+
+#: /Groups/index.ctp:54
+msgid "Everybody (all users, logged or not, are in this group)"
+msgstr ""
+
+#: /Groups/view.ctp:8
+msgid "Group %s"
+msgstr ""
+
+#: /Groups/view.ctp:15
+msgid "Edit group"
+msgstr ""
+
+#: /Groups/view.ctp:17
+#: /Users/view.ctp:100
+msgid "View allowed & denied actions"
+msgstr ""
+
+#: /Groups/view.ctp:18
+msgid "Delete group"
+msgstr ""
+
+#: /Groups/view.ctp:18
+msgid "Are you sure you want to delete the group %s?"
+msgstr ""
+
+#: /Groups/view.ctp:26
+#: /Users/view.ctp:109
+msgid "Allowed & denied actions"
+msgstr ""
+
+#: /Groups/view.ctp:48
+#: /Users/view.ctp:131
+msgid "Hide this view"
+msgstr ""
+
+#: /Groups/view.ctp:54
+msgid "Users in group %s"
+msgstr ""
+
+#: /Groups/view.ctp:58
+#: /User/index.ctp:6
+#: /User/login.ctp:7;11
+#: /User/register.ctp:9
+#: /Users/add.ctp:12
+#: /Users/view.ctp:21
+msgid "Login"
+msgstr ""
+
+#: /Groups/view.ctp:59
+#: /User/register.ctp:11
+#: /Users/add.ctp:14
+#: /Users/edit.ctp:14
+#: /Users/view.ctp:47
+msgid "Email"
+msgstr ""
+
+#: /Groups/view.ctp:94
+msgid "Rules applied to the group %s"
+msgstr ""
+
+#: /Groups/view.ctp:96
+#: /Users/view.ctp:139
+msgid "Rules herited from guest group are greyed"
+msgstr ""
+
+#: /Groups/view.ctp:99
+#: /Rules/add.ctp:12
+#: /Rules/edit.ctp:13
+#: /Rules/index.ctp:15
+#: /Rules/view.ctp:10
+#: /Users/view.ctp:142
+msgid "Description"
+msgstr ""
+
+#: /Groups/view.ctp:101
+#: /Rules/index.ctp:18
+#: /Rules/view.ctp:30
+#: /Users/view.ctp:144
+msgid "Action"
+msgstr ""
+
+#: /Helper/HtmlbisHelper.php:34
+#: /Helper/htmlbis.php:34
+msgid "Allow"
+msgstr ""
+
+#: /Helper/HtmlbisHelper.php:36
+#: /Helper/htmlbis.php:36
+msgid "Deny"
+msgstr ""
+
+#: /Layouts/authake.ctp:31
+msgid "CakePHP: the rapid development php framework:"
+msgstr ""
+
+#: /Layouts/authake.ctp:47;61
+msgid "CakePHP: the rapid development php framework"
+msgstr ""
+
+#: /Rules/add.ctp:10
+msgid "Add Rule"
+msgstr ""
+
+#: /Rules/add.ctp:13
+#: /Rules/edit.ctp:14
+#: /Rules/index.ctp:16
+#: /Rules/view.ctp:15
+msgid "Group"
+msgstr ""
+
+#: /Rules/add.ctp:14
+#: /Rules/edit.ctp:15
+#: /Rules/index.ctp:20
+#: /Rules/view.ctp:25
+msgid "Order"
+msgstr ""
+
+#: /Rules/add.ctp:15
+#: /Rules/edit.ctp:16
+msgid "Action<br/>(perl regex)"
+msgstr ""
+
+#: /Rules/add.ctp:16
+#: /Rules/edit.ctp:17
+#: /Rules/view.ctp:37
+msgid "Permission"
+msgstr ""
+
+#: /Rules/add.ctp:17
+#: /Rules/view.ctp:44
+msgid "Forward action on deny"
+msgstr ""
+
+#: /Rules/add.ctp:18
+#: /Rules/edit.ctp:19
+#: /Rules/view.ctp:55
+msgid "Flash message on deny"
+msgstr ""
+
+#: /Rules/edit.ctp:10
+msgid "Modify rule"
+msgstr ""
+
+#: /Rules/edit.ctp:18
+msgid "Forward action on error"
+msgstr ""
+
+#: /Rules/edit.ctp:26
+msgid "View rule"
+msgstr ""
+
+#: /Rules/index.ctp:9
+#: /Users/view.ctp:178
+msgid "New Rule"
+msgstr ""
+
+#: /Rules/index.ctp:61
+msgid "Are you sure you want to delete the rule '%s'?"
+msgstr ""
+
+#: /Rules/index.ctp:65
+msgid "Move up"
+msgstr ""
+
+#: /Rules/index.ctp:73
+msgid "Move down"
+msgstr ""
+
+#: /Rules/view.ctp:8
+msgid "Rule"
+msgstr ""
+
+#: /Rules/view.ctp:20
+msgid "Everybody, including not logged users"
+msgstr ""
+
+#: /Rules/view.ctp:51
+msgid "Forward to the login page, or default deny action if logged"
+msgstr ""
+
+#: /Rules/view.ctp:62
+msgid "No output"
+msgstr ""
+
+#: /Rules/view.ctp:70
+msgid "Edit Rule"
+msgstr ""
+
+#: /Rules/view.ctp:71
+msgid "Delete Rule"
+msgstr ""
+
+#: /User/denied.ctp:2
+msgid "You dont have access to this page!"
+msgstr ""
+
+#: /User/denied.ctp:6
+#: /User/message.ctp:5
+msgid "Go to homepage"
+msgstr ""
+
+#: /User/index.ctp:4
+msgid "Profile of "
+msgstr ""
+
+#: /User/index.ctp:22
+msgid "Created"
+msgstr ""
+
+#: /User/index.ctp:31
+msgid "Modify profile"
+msgstr ""
+
+#: /User/index.ctp:33
+msgid "(If modified, you will have to confirm it before the next login)"
+msgstr ""
+
+#: /User/index.ctp:34
+msgid "New Password"
+msgstr ""
+
+#: /User/index.ctp:35
+msgid "Enter Your New Password Again"
+msgstr ""
+
+#: /User/index.ctp:38
+msgid "Save"
+msgstr ""
+
+#: /User/login.ctp:8
+#: /User/register.ctp:12
+#: /Users/add.ctp:13
+msgid "Password"
+msgstr ""
+
+#: /User/login.ctp:13
+msgid "I forgot my password..."
+msgstr ""
+
+#: /User/login.ctp:14
+msgid "Register yourself"
+msgstr ""
+
+#: /User/lost_password.ctp:6
+msgid "Login or email"
+msgstr ""
+
+#: /User/lost_password.ctp:8
+msgid "Request for password"
+msgstr ""
+
+#: /User/pass.ctp:6
+msgid "Change your password"
+msgstr ""
+
+#: /User/pass.ctp:8
+msgid "Code"
+msgstr ""
+
+#: /User/pass.ctp:13
+#: /User/verify.ctp:11
+msgid "Confirm"
+msgstr ""
+
+#: /User/profile.ctp:11
+msgid "Change my password now"
+msgstr ""
+
+#: /User/register.ctp:6
+msgid "Registration"
+msgstr ""
+
+#: /User/register.ctp:13
+msgid "Please, re-enter password"
+msgstr ""
+
+#: /User/register.ctp:15
+msgid "Register"
+msgstr ""
+
+#: /User/verify.ctp:6
+msgid "Confirmation"
+msgstr ""
+
+#: /User/verify.ctp:8
+msgid "Please insert the code which you received in your e-mail."
+msgstr ""
+
+#: /Users/add.ctp:10
+msgid "Create a new user"
+msgstr ""
+
+#: /Users/add.ctp:15
+#: /Users/edit.ctp:13
+msgid "In groups<br/>Press 'Control' for multi-selection"
+msgstr ""
+
+#: /Users/add.ctp:16
+#: /Users/edit.ctp:19
+msgid "Disable account"
+msgstr ""
+
+#: /Users/edit.ctp:10
+msgid "Modify user"
+msgstr ""
+
+#: /Users/edit.ctp:15
+#: /Users/view.ctp:52
+msgid "Email check code"
+msgstr ""
+
+#: /Users/edit.ctp:16
+#: /Users/view.ctp:59
+msgid "Password change code"
+msgstr ""
+
+#: /Users/edit.ctp:17
+msgid "New password (visible!)"
+msgstr ""
+
+#: /Users/edit.ctp:22
+msgid "Account expiry date"
+msgstr ""
+
+#: /Users/edit.ctp:30
+#: /Users/view.ctp:96
+msgid "View user"
+msgstr ""
+
+#: /Users/index.ctp:8
+msgid "New User"
+msgstr ""
+
+#: /Users/index.ctp:15
+msgid "There are %current% users on this system. Page %page%/%pages%"
+msgstr ""
+
+#: /Users/index.ctp:29
+msgid "Disabled"
+msgstr ""
+
+#: /Users/index.ctp:42
+msgid "filter"
+msgstr ""
+
+#: /Users/index.ctp:83
+msgid "Needed"
+msgstr ""
+
+#: /Users/index.ctp:90
+msgid "Requested"
+msgstr ""
+
+#: /Users/index.ctp:98
+#: /Users/view.ctp:15
+msgid "Account disabled"
+msgstr ""
+
+#: /Users/index.ctp:101
+msgid "Account expired"
+msgstr ""
+
+#: /Users/index.ctp:107
+#: /Users/view.ctp:101
+msgid "Are you sure you want to delete user '%s'?"
+msgstr ""
+
+#: /Users/index.ctp:116
+msgid "previous"
+msgstr ""
+
+#: /Users/index.ctp:118
+msgid "next"
+msgstr ""
+
+#: /Users/view.ctp:8
+msgid "User %s"
+msgstr ""
+
+#: /Users/view.ctp:12
+msgid "Warning"
+msgstr ""
+
+#: /Users/view.ctp:26
+msgid "In groups"
+msgstr ""
+
+#: /Users/view.ctp:40
+msgid "No group"
+msgstr ""
+
+#: /Users/view.ctp:55
+msgid "No email change requested"
+msgstr ""
+
+#: /Users/view.ctp:62
+msgid "No password change requested"
+msgstr ""
+
+#: /Users/view.ctp:66
+msgid "Account expires on"
+msgstr ""
+
+#: /Users/view.ctp:73
+msgid "Never"
+msgstr ""
+
+#: /Users/view.ctp:77
+msgid "Created on"
+msgstr ""
+
+#: /Users/view.ctp:82
+msgid "Updated on"
+msgstr ""
+
+#: /Users/view.ctp:98
+msgid "Edit user"
+msgstr ""
+
+#: /Users/view.ctp:101
+msgid "Delete user"
+msgstr ""
+
+#: /Users/view.ctp:137
+msgid "Rules applied to user %s"
+msgstr ""
+

@@ -3,21 +3,21 @@
 <div class="rules index">
 <?php if (!$tableonly) { ?>
 
-<h2><?php echo __('Rules');?></h2>
+<h2><?php echo __d('authake', 'Rules');?></h2>
 <div class="actions">
     <ul>
-        <li class="icon add"><?php echo $this->Html->link(__('New Rule'), array('action'=>'add')); ?></li>
+        <li class="icon add"><?php echo $this->Html->link(__d('authake', 'New Rule'), array('action'=>'add')); ?></li>
     </ul>
 </div>
 <?php } ?>
 <table class="listing" cellpadding="0" cellspacing="0">
 <tr>
-	<th><?php echo __('Description');?></th>
-	<th><?php echo __('Group');?></th>
+	<th><?php echo __d('authake', 'Description');?></th>
+	<th><?php echo __d('authake', 'Group');?></th>
     <th>&nbsp;</th>
-	<th><?php echo __('Action');?></th>
-	<th class="actions"><?php echo __('Actions');?></th>
-    <th><?php echo __('Order');?></th>
+	<th><?php echo __d('authake', 'Action');?></th>
+	<th class="actions"><?php echo __d('authake', 'Actions');?></th>
+    <th><?php echo __d('authake', 'Order');?></th>
 </tr>
 <?php
 $i = 0;
@@ -56,13 +56,13 @@ foreach ($rules as $k => $rule):
 		</td>
 		<td class="actions">
             <?php if ($rule['Rule']['id'] != 1) { ?>      
-            <?php echo $this->Htmlbis->iconlink('information', __('View'), array('action'=>'view', $rule['Rule']['id'])); ?>
-            <?php echo $this->Htmlbis->iconlink('pencil', __('Edit'), array('action'=>'edit', $rule['Rule']['id'])); ?>
-			<?php echo $this->Htmlbis->iconlink('cross', __('Delete'), array('action'=>'delete', $rule['Rule']['id']), null, sprintf(__('Are you sure you want to delete the rule \'%s\'?'), $rule['Rule']['name'])); ?>
+            <?php echo $this->Htmlbis->iconlink('information', __d('authake', 'View'), array('action'=>'view', $rule['Rule']['id'])); ?>
+            <?php echo $this->Htmlbis->iconlink('pencil', __d('authake', 'Edit'), array('action'=>'edit', $rule['Rule']['id'])); ?>
+			<?php echo $this->Htmlbis->iconlink('cross', __d('authake', 'Delete'), array('action'=>'delete', $rule['Rule']['id']), null, sprintf(__d('authake', 'Are you sure you want to delete the rule \'%s\'?'), $rule['Rule']['name'])); ?>
             <?php
 
             if ($up) {
-                echo $this->Htmlbis->iconlink('arrow_up', __('Move up'), array('action'=>'up', $rule['Rule']['id'], $up));
+                echo $this->Htmlbis->iconlink('arrow_up', __d('authake', 'Move up'), array('action'=>'up', $rule['Rule']['id'], $up));
             } else {
                 echo $this->Htmlbis->iconlink('empty', '', array('action'=>''));
             }
@@ -70,7 +70,7 @@ foreach ($rules as $k => $rule):
               
             $down = $rules[$k+1]['Rule']['id'];
             if ($down>1) {
-                echo $this->Htmlbis->iconlink('arrow_down', __('Move down'), array('action'=>'up', $rule['Rule']['id'], $down));
+                echo $this->Htmlbis->iconlink('arrow_down', __d('authake', 'Move down'), array('action'=>'up', $rule['Rule']['id'], $down));
             } else {
                 echo $this->Htmlbis->iconlink('empty', '', array('action'=>''));
             }
@@ -89,8 +89,8 @@ foreach ($rules as $k => $rule):
 <?php if (!$tableonly) { ?>
 <div class="actions">
 	<ul>
-        <li class="icon user"><?php echo $this->Html->link(__('Manage users'), array('controller'=> 'users', 'action'=>'index')); ?> </li>
-        <li class="icon lock"><?php echo $this->Html->link(__('Manage groups'), array('controller'=> 'groups', 'action'=>'index')); ?> </li>
+        <li class="icon user"><?php echo $this->Html->link(__d('authake', 'Manage users'), array('controller'=> 'users', 'action'=>'index')); ?> </li>
+        <li class="icon lock"><?php echo $this->Html->link(__d('authake', 'Manage groups'), array('controller'=> 'groups', 'action'=>'index')); ?> </li>
 	</ul>
 </div>
 <?php } ?>
