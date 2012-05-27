@@ -44,7 +44,7 @@ class UsersController extends AuthakeAppController {
     function view($id = null, $viewactions = null) {
         $this->User->recursive = 1;     // to select user, groups and rules
         if (!$id) {
-            $this->Session->setFlash(__('Invalid User'));
+            $this->Session->setFlash(__d('authake', 'Invalid User'));
             $this->redirect(array('action'=>'index'));
         }
         
@@ -61,7 +61,7 @@ class UsersController extends AuthakeAppController {
             
             // only an admin can make an admin
             if (in_array(1, $this->request->data['Group']['Group']) and !in_array(1, $this->Authake->getGroupIds())) {
-                $this->Session->setFlash(__('You cannot add a user in administrators group'), 'warning');
+                $this->Session->setFlash(__d('authake', 'You cannot add a user in administrators group'), 'warning');
                 $this->redirect(array('action'=>'index'));
             }
             
@@ -70,10 +70,10 @@ class UsersController extends AuthakeAppController {
             
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The User has been saved'), 'success');
+                $this->Session->setFlash(__d('authake', 'The User has been saved'), 'success');
                 $this->redirect(array('action'=>'index'));
             } else {
-                $this->Session->setFlash(__('The User could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__d('authake', 'The User could not be saved. Please, try again.'), 'error');
             }
         }
         
@@ -84,7 +84,7 @@ class UsersController extends AuthakeAppController {
 
     function edit($id = null) {
         if (!$id && empty($this->request->data)) {
-            $this->Session->setFlash(__('Invalid User'));
+            $this->Session->setFlash(__d('authake', 'Invalid User'));
             $this->redirect(array('action'=>'index'));
         }
         
@@ -94,14 +94,14 @@ class UsersController extends AuthakeAppController {
         $gr = Set::extract($user, "Group.{n}.id");
         
         if (in_array(1, $gr) and !in_array(1, $this->Authake->getGroupIds())) {
-            $this->Session->setFlash(__('You cannot edit a user in administrators group'), 'warning');
+            $this->Session->setFlash(__d('authake', 'You cannot edit a user in administrators group'), 'warning');
             $this->redirect(array('action'=>'index'));
         }
         
         if (!empty($this->request->data)) {
             // only Admin (id 1) can modify its profile (for security reasons)
             if ($id == 1 && $this->Authake->getUserId() != 1) {
-                $this->Session->setFlash(__('Only the admin can change its profile!'), 'warning');
+                $this->Session->setFlash(__d('authake', 'Only the admin can change its profile!'), 'warning');
                 $this->redirect(array('action'=>'index'));
             }
             
@@ -115,7 +115,7 @@ class UsersController extends AuthakeAppController {
                 in_array(1, $this->request->data['Group']['Group']) and
                 !in_array(1, $this->Authake->getGroupIds())
                 ) {
-                $this->Session->setFlash(__('You cannot add a user in administrators group'), 'warning');
+                $this->Session->setFlash(__d('authake', 'You cannot add a user in administrators group'), 'warning');
                 $this->redirect(array('action'=>'index'));
             }
 
@@ -132,10 +132,10 @@ class UsersController extends AuthakeAppController {
 
             // save user
             if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The User has been saved'), 'success');
+                $this->Session->setFlash(__d('authake', 'The User has been saved'), 'success');
                 $this->redirect(array('action'=>'index'));
             } else {
-                $this->Session->setFlash(__('The User could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__d('authake', 'The User could not be saved. Please, try again.'), 'error');
             }
         }
         
@@ -154,7 +154,7 @@ class UsersController extends AuthakeAppController {
         $user = $this->User->read(null, $id);
         
         if (!$id || $id == 1) {
-            $this->Session->setFlash(__('Invalid id for User'), 'error');
+            $this->Session->setFlash(__d('authake', 'Invalid id for User'), 'error');
             $this->redirect(array('action'=>'index'));
         }
         
@@ -162,12 +162,12 @@ class UsersController extends AuthakeAppController {
         $gr = Set::extract($user, "Group.{n}.id");
         
         if (in_array(1, $gr) and !in_array(1, $this->Authake->getGroupIds())) {
-            $this->Session->setFlash(__('You cannot delete a user in administrators group'), 'warning');
+            $this->Session->setFlash(__d('authake', 'You cannot delete a user in administrators group'), 'warning');
             $this->redirect(array('action'=>'index'));
         }
 
         if ($this->User->delete($id)) {
-            $this->Session->setFlash(__('User deleted'), 'success');
+            $this->Session->setFlash(__d('authake', 'User deleted'), 'success');
             $this->redirect(array('action'=>'index'));
         }
     }

@@ -43,7 +43,7 @@ class AuthakeHelper extends AppHelper {
 
     function getGroupNames() {
         $gn = $this->Session->read('Authake.group_names');
-        return (is_array($gn) ? $gn : array(__('Guest')));
+        return (is_array($gn) ? $gn : array(__d('authake', 'Guest')));
     }
 
     function isMemberOf($gid) {

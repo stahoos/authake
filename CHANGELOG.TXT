@@ -3,7 +3,7 @@ v2.0 (Oct 27, 2011) Mutlu Tevfik Kocak
 THIS VERSION RUNS ONLY WITH CAKEPHP 2.0
 
 	* All changes made to run with CakePHP 2.0
-	* __() translations without true thing
+	* __d('authake', ) translations without true thing
 	* $components are now $this->Component
 	* All folder and file names are compatible with CakePHP 2.0
 	* And many other great things to run with CakePHP 2.0
