@@ -46,22 +46,22 @@ var $recursive = 1;
             'login' => array(
                 'alphanumeric' => array(
                     'rule' => 'alphaNumeric',  
-                    'message' => 'Only alphabets and numbers allowed'
+                    'message' => __d('authake', 'Only alphabets and numbers allowed'),
                 ),
                 'minlength' => array(
                     'rule' => array('minLength', ( Configure::read('Authake.useEmailAsUsername') ? '0' : '3' ) ), 
                     // set min length to 0 if we do not want usernames but only emails
-                       'message' => 'Minimum length of 3 characters'
+                       'message' => __d('authake', 'Minimum length of 3 characters'),
                 ),
                 'maxlength' => array(
                     'rule' => array('maxLength', '32'),  
-                    'message' => 'Maximum length of 32 characters'
+                    'message' => __d('authake', 'Maximum length of 32 characters'),
                 )
             ),
             'email' => array(
                     'notEmpty' => array(
                             'rule' => 'notEmpty',
-                            'message'=>__d('authake', 'Username can not be blank')
+                            'message'=>__d('authake', 'Username can not be blank'),
                     ),
                     'unique' => array(
                             'rule' => 'isUnique',

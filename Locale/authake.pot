@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2012-05-27 22:45+0200\n"
+"POT-Creation-Date: 2012-05-27 23:03+0200\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -250,6 +250,18 @@ msgstr ""
 #: /User/index.ctp:18
 #: /Users/index.ctp:74
 msgid "Guest"
+msgstr ""
+
+#: /User.php:49
+msgid "Only alphabets and numbers allowed"
+msgstr ""
+
+#: /User.php:54
+msgid "Minimum length of 3 characters"
+msgstr ""
+
+#: /User.php:58
+msgid "Maximum length of 32 characters"
 msgstr ""
 
 #: /User.php:64
