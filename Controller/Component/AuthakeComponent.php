@@ -134,6 +134,11 @@ class AuthakeComponent extends Component {
         // get action path
 
         $path = $controller->request->params;
+        
+        
+      //  $path['controller'] = str_replace("users", "user", $path['controller']);
+        
+       // pr($path);
 
         $loginAction = Configure::read('Authake.loginAction');
         
@@ -156,6 +161,7 @@ class AuthakeComponent extends Component {
         }
 
         if (!$this->isAllowed($path)) { // check for permissions
+ 			//pr($path);
             if ($this->isLogged()) { // if denied & logged, write a message
                 if ($this->_flashmessage) { // message from the rule (accept path in %s)
                     $this->Session->setFlash(sprintf(__d('authake', $this->_flashmessage), $path), 'error');    // Set Flash message
@@ -167,7 +173,7 @@ class AuthakeComponent extends Component {
                 $this->setPreviousUrl($path);
              $strpath = Router::url($path + array("base" => false));
             $this->Session->setFlash(sprintf(__d('authake', 'You have to log in to access %s'), $strpath), 'warning');
-       $controller->redirect($loginAction);
+			$controller->redirect($loginAction);
             }
             $this->_flashmessage = '';
         }
@@ -252,9 +258,16 @@ class AuthakeComponent extends Component {
 
     // Function to check the access for the controller / action
     function isAllowed($url = "", $group_ids = null) { // $checkStr: "/name/action/" $group_ids: check again thess groups
-          if (is_array($url)) { $url = $this->cleanUrl($url) ;}
+    	
+    	//pr($url);
+    	//pr($group_ids);
+    	
+        if (is_array($url)) { $url = $this->cleanUrl($url) ;}
+        
         $allow = false;
         $rules = $this->getRules($group_ids);
+       // pr($url);
+        //pr($rules);
         foreach ($rules as $data) {
             if (preg_match("/^({$data['Rule']['action']})$/i", $url, $matches)) {
                 $allow = $data['Rule']['permission']; //echo $allow.'=>'.$url.' ** '.$data['Rule']['action'];
@@ -265,6 +278,8 @@ class AuthakeComponent extends Component {
                 } else {
                     $allow = true;
                 }
+              //  pr($data);
+             //   pr($allow);
             }
         }
         return $allow;

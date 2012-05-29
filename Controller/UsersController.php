@@ -171,6 +171,11 @@ class UsersController extends AuthakeAppController {
             $this->redirect(array('action'=>'index'));
         }
     }
+    
+//    function login()
+  //  {
+    	//$this->redirect("/");
+  //  }
 
 
 }

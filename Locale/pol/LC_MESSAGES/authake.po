@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Authake\n"
-"POT-Creation-Date: 2012-05-27 23:03+0200\n"
-"PO-Revision-Date: 2012-05-27 23:04+0100\n"
+"POT-Creation-Date: 2012-05-27 22:45+0200\n"
+"PO-Revision-Date: 2012-05-27 22:46+0100\n"
 "Last-Translator: Stanislaw Cieslicki <stahoo@poczta.onet.pl>\n"
 "Language-Team: Staszek Cieślicki Metano.pl <stahoo@poczta.onet.pl>\n"
 "Language: \n"
@@ -253,18 +253,6 @@ msgstr "Musisz się zalogować, aby mieć dostęp do %s"
 #: /Users/index.ctp:74
 msgid "Guest"
 msgstr "Gość"
-
-#: /User.php:49
-msgid "Only alphabets and numbers allowed"
-msgstr "Tylko litery lub cyfry"
-
-#: /User.php:54
-msgid "Minimum length of 3 characters"
-msgstr "Minimalna długość 3 znaki"
-
-#: /User.php:58
-msgid "Maximum length of 32 characters"
-msgstr "Maksymalna długość 32 znaki"
 
 #: /User.php:64
 msgid "Username can not be blank"

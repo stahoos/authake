@@ -45,22 +45,6 @@ class Rule extends AuthakeAppModel {
         $order = 'Rule.order ASC, Rule.group_id ASC';
         $data = $this->find('all', array('conditions'=>$conditions, 'fields'=>$fields, 'order'=>$order, 'contain'=>array()));
 
-        
-        /**
-         * SC remove chars: chr10 i chr13
-         */
-        $strip_chars_in = array(chr(10), chr(13), "  ");
-        $strip_chars_out = array(" ", " ", " ");
-        $nb = count($data);
-        for($i=0; $i<$nb; $i++){
-        	$data[$i]['Rule']['action'] = str_replace($strip_chars_in, $strip_chars_out, $data[$i]['Rule']['action']);
-        }
-        
-        
-       // pr($data);
-        
-     //  Debugger::dump('conditions: '.$conditions. ', fields: '.$fields. ', order'.$order);
-        
         if ($cleanRegex) {
             $nb = count($data);
             for($i=0; $i<$nb; $i++) {

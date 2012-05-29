@@ -37,6 +37,9 @@ class AuthakeAppModel extends AppModel {
         //Get the name of the table
         $db =& ConnectionManager::getDataSource($this->useDbConfig);
         $tableName = $db->fullTableName($this, false);
+        
+        //pr($tabelName);
+        //exit;
 
 
         //Get the values for the specified column (database and version specific, needs testing)

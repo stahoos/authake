@@ -61,7 +61,7 @@ var $recursive = 1;
             'email' => array(
                     'notEmpty' => array(
                             'rule' => 'notEmpty',
-                            'message'=>__d('authake', 'Username can not be blank'),
+                            'message'=>__d('authake', 'Username can not be blank')
                     ),
                     'unique' => array(
                             'rule' => 'isUnique',

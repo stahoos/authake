@@ -3,12 +3,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `authake_groups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `order` int(10)
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
-INSERT INTO `authake_groups` (`id`, `name`) VALUES
-(1, 'Administrators'),
-(2, 'Registered users');
+INSERT INTO `authake_groups` (`id`, `name`, `order`) VALUES
+(1, 'Administrators', 0),
+(2, 'Registered users', 99999);
 
 CREATE TABLE IF NOT EXISTS `authake_groups_users` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -52,5 +53,5 @@ CREATE TABLE IF NOT EXISTS `authake_users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 INSERT INTO `authake_users` (`id`, `login`, `password`, `email`, `emailcheckcode`, `passwordchangecode`, `disable`, `expire_account`, `created`, `updated`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'root', '', '', 0, NULL, '0000-00-00 00:00:00', '2008-02-12 12:19:31');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'root', '', '', 0, NULL, '2012-01-01 00:00:00', '2012-01-01 00:00:00');
 
