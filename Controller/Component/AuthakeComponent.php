@@ -52,7 +52,7 @@ class AuthakeComponent extends Component {
          * Default login action
          */
         if (Configure::read('Authake.loginAction') == null) {
-            Configure::write('Authake.loginAction', array('plugin' => 'authake', 'controller' => 'user', 'action' => 'login', 'admin' => 0));
+            Configure::write('Authake.loginAction', array('plugin' => 'authake', 'controller' => 'users', 'action' => 'login', 'admin' => 0));
         }
         /**
          * Used to redirect the users if the current user is logged out. Basically, this
@@ -135,7 +135,6 @@ class AuthakeComponent extends Component {
 
         $path = $controller->request->params;
         
-        
       //  $path['controller'] = str_replace("users", "user", $path['controller']);
         
        // pr($path);
@@ -146,7 +145,6 @@ class AuthakeComponent extends Component {
         
             $this->setPreviousUrl(null);
         }
-
         // check session timeout
         $tm = Configure::read('Authake.sessionTimeout');
         if ($tm && $this->isLogged()) {
@@ -173,7 +171,7 @@ class AuthakeComponent extends Component {
                 $this->setPreviousUrl($path);
              $strpath = Router::url($path + array("base" => false));
             $this->Session->setFlash(sprintf(__d('authake', 'You have to log in to access %s'), $strpath), 'warning');
-			$controller->redirect($loginAction);
+			//$controller->redirect($loginAction);
             }
             $this->_flashmessage = '';
         }
@@ -229,6 +227,7 @@ class AuthakeComponent extends Component {
         $this->Session->write('Authake', $user);
         $this->Session->write("Authake.previousUrl", $previousUrl);
         $this->setTimestamp();
+        //exit;
     }
 
     function logout() {
