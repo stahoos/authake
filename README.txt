@@ -1,3 +1,7 @@
+UPDATE: 30 may 2012
+
+changes for work with CakePHP 2.2
+
 UPDATE: 31 Jan 2012 
 
 Chages added made by Lonardo Pedretti
