@@ -1,3 +1,9 @@
+v2.2 (may 2012) Stahoo
+
+	* added localization mechanism
+	* added localization for Polish
+	* changes for compatibility with CakePHP 2.2RC1
+
 v2.0 (Oct 27, 2011) Mutlu Tevfik Kocak
 
 THIS VERSION RUNS ONLY WITH CAKEPHP 2.0
